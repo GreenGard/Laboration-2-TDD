@@ -43,5 +43,14 @@ class CalculatorTest {
         assertTrue(result == 6);
 
     }
+    @Test
+    void addDifferentDelimiters() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("//;\n1;2,","0");
+
+        assertTrue(result == 3);
+
+    }
 }
 
