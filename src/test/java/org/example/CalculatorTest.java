@@ -25,5 +25,14 @@ class CalculatorTest {
 
         assertTrue(result == 0);
     }
+    @Test
+    void addmanynumbers() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("1,2,3,4","2");
+
+        assertTrue(result == 12);
+
+    }
 }
 
