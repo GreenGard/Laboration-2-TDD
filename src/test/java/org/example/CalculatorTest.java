@@ -34,5 +34,14 @@ class CalculatorTest {
         assertTrue(result == 12);
 
     }
+    @Test
+    void allowLinesBetweenNumbers() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("1\n2,3,","0");
+
+        assertTrue(result == 6);
+
+    }
 }
 
