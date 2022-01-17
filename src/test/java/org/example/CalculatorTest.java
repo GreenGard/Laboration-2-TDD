@@ -17,5 +17,13 @@ class CalculatorTest {
 
     }
 
+    @Test
+    void emptyStringShouldBeValid() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("", "");
+
+        assertTrue(result == 0);
+    }
 }
 
