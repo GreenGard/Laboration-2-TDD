@@ -17,8 +17,8 @@ public class Calculator {
             if (element.equals("")) {
                 return 0;
             }
-            else if (element.contains(",")) {
-                var numbers = element.split(",");
+            else if (element.contains(",") ||(element.contains("\n"))) {
+                var numbers = element.split("[\\n\\,]");
                 for (var number : numbers) {
                     sum += Double.parseDouble(number);
                 }
