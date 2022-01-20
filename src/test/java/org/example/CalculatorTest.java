@@ -61,5 +61,14 @@ class CalculatorTest {
         Exception exception =assertThrows(IllegalArgumentException.class, () -> calculator.add("-1"));
          assertEquals("negatives not allowed\n -1", exception.getMessage());
     }
+    @Test
+    void ignoreNumbersOverThousand() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("2"+"1001");
+
+        assertTrue(result == 2);
+
+    }
 }
 
