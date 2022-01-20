@@ -65,9 +65,9 @@ class CalculatorTest {
     void ignoreNumbersOverThousand() {
         Calculator calculator = new Calculator();
 
-        var result = calculator.add("2"+"1001");
+        var result = calculator.add("2,1001");
 
-        assertTrue(result == 2);
+        assertEquals( 2,result);
 
     }
 }

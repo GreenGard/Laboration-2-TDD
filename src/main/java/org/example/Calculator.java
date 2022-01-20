@@ -26,7 +26,10 @@ public class Calculator {
             if (!number.trim().isEmpty()) {
 
                 if (Integer.parseInt(number.trim()) > 0) {
-                    sum += Integer.parseInt(number.trim());
+                    if (Integer.parseInt(number.trim()) <1000){
+                        sum += Integer.parseInt(number.trim());
+                    }
+
                 }
                 else {
                     message+=" " +number;
