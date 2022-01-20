@@ -70,5 +70,14 @@ class CalculatorTest {
         assertEquals( 2,result);
 
     }
+    @Test
+    void delimiterCanBeOfAnyLength() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("//[***]\n1***2***3");
+
+        assertEquals( 6,result);
+
+    }
 }
 
