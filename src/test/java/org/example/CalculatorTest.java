@@ -3,8 +3,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
     @Test
@@ -25,6 +24,7 @@ class CalculatorTest {
 
         assertTrue(result == 0);
     }
+
     @Test
     void addManyNumbers() {
         Calculator calculator = new Calculator();
@@ -34,6 +34,7 @@ class CalculatorTest {
         assertTrue(result == 10);
 
     }
+
     @Test
     void allowLinesBetweenNumbers() {
         Calculator calculator = new Calculator();
@@ -43,6 +44,7 @@ class CalculatorTest {
         assertTrue(result == 6);
 
     }
+
     @Test
     void addDifferentDelimiters() {
         Calculator calculator = new Calculator();
@@ -51,6 +53,13 @@ class CalculatorTest {
 
         assertTrue(result == 3);
 
+    }
+
+    @Test
+    void exceptionTesting() {
+        Calculator calculator = new Calculator();
+        Exception exception =assertThrows(IllegalArgumentException.class, () -> calculator.add("-1"));
+         assertEquals("negatives not allowed\n -1", exception.getMessage());
     }
 }
 

@@ -1,5 +1,8 @@
 package org.example;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Calculator {
 
 
@@ -16,15 +19,22 @@ public class Calculator {
 
     private static int add(final String s, final String delimiter) {
         int sum = 0;
+        String message = "negatives not allowed\n";
         String[] sortedNumbersArray = s.split(delimiter);
         for (String number : sortedNumbersArray) {
 
             if (!number.trim().isEmpty()) {
-                sum += Integer.parseInt(number.trim());
-            } else {
-                sum = 0;
+
+                if (Integer.parseInt(number.trim()) > 0) {
+                    sum += Integer.parseInt(number.trim());
+                }
+                else {
+                    message+=" " +number;
+                    throw new IllegalArgumentException(message); // + "n/" + number
+                }
             }
         }
         return sum;
     }
 }
+
