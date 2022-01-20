@@ -11,9 +11,9 @@ class CalculatorTest {
     void addtwovaluesshouldreturnsum() {
         Calculator calculator = new Calculator();
 
-        int result = calculator.add("1.0", "1.2");
+        int result = calculator.add("1,2");
 
-        assertEquals(2.0, result);
+        assertEquals(3, result);
 
     }
 
@@ -21,24 +21,24 @@ class CalculatorTest {
     void emptyStringShouldBeValid() {
         Calculator calculator = new Calculator();
 
-        var result = calculator.add("", "");
+        var result = calculator.add("");
 
         assertTrue(result == 0);
     }
     @Test
-    void addmanynumbers() {
+    void addManyNumbers() {
         Calculator calculator = new Calculator();
 
-        var result = calculator.add("1,2,3,4","2");
+        var result = calculator.add("1,2,3,4");
 
-        assertTrue(result == 12);
+        assertTrue(result == 10);
 
     }
     @Test
     void allowLinesBetweenNumbers() {
         Calculator calculator = new Calculator();
 
-        var result = calculator.add("1\n2,3,","0");
+        var result = calculator.add("1\n2,3,");
 
         assertTrue(result == 6);
 
@@ -47,7 +47,7 @@ class CalculatorTest {
     void addDifferentDelimiters() {
         Calculator calculator = new Calculator();
 
-        var result = calculator.add("//;\n1;2,","0");
+        var result = calculator.add("//;n1;2");
 
         assertTrue(result == 3);
 
