@@ -3,21 +3,25 @@ package org.example;
 public class Calculator {
 
     public int add(String s) {
-        String delimiter = ",|\n";
-        String sortedNumbers = s;
+        String delimiter = ",|\n|%";
+
         if (s.startsWith("//")) {
             if (s.contains("[")) {
-                delimiter = s.substring(s.indexOf("[") + 1, s.indexOf("]"));
-                sortedNumbers = s.substring(s.indexOf("]") + 2);
-                sortedNumbers=sortedNumbers.replace(delimiter,",");
+                while (s.contains("[")){
+                    delimiter = s.substring(s.indexOf("[") + 1, s.indexOf("]"));
+                    s = s.substring(s.indexOf("]") + 1);
+                    s=s.replace(delimiter,",");
+                }
+
+                s=s.substring(s.indexOf("\n")+1);
                 delimiter=",";
             } else {
                 int delimiterPosition = s.indexOf("//") + 2;
                 delimiter = s.substring(delimiterPosition, delimiterPosition + 1);
-                sortedNumbers = s.substring(s.indexOf("n") + 1);
+                s = s.substring(s.indexOf("n") + 1);
             }
         }
-        return add(sortedNumbers, delimiter);
+        return add(s, delimiter);
     }
 
     private static int add(final String s, final String delimiter) {

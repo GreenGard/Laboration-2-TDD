@@ -81,5 +81,14 @@ class CalculatorTest {
         assertEquals( 6,result);
 
     }
+    @Test
+    void allowMultipleDelimiters() {
+        Calculator calculator = new Calculator();
+
+        var result = calculator.add("//[*][%]\n1*2%3");
+
+        assertEquals( 6,result);
+
+    }
 }
 
