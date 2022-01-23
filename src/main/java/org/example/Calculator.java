@@ -7,14 +7,14 @@ public class Calculator {
 
         if (s.startsWith("//")) {
             if (s.contains("[")) {
-                while (s.contains("[")){
+                while (s.contains("[")) {
                     delimiter = s.substring(s.indexOf("[") + 1, s.indexOf("]"));
                     s = s.substring(s.indexOf("]") + 1);
-                    s=s.replace(delimiter,",");
+                    s = s.replace(delimiter, ",");
                 }
 
-                s=s.substring(s.indexOf("\n")+1);
-                delimiter=",";
+                s = s.substring(s.indexOf("\n") + 1);
+                delimiter = ",";
             } else {
                 int delimiterPosition = s.indexOf("//") + 2;
                 delimiter = s.substring(delimiterPosition, delimiterPosition + 1);
@@ -30,17 +30,18 @@ public class Calculator {
         String[] sortedNumbersArray = s.split(delimiter);
 
         for (String number : sortedNumbersArray) {
-            if (!number.trim().isEmpty()) {
-                if (Integer.parseInt(number.trim()) > 0) {
-                    if (Integer.parseInt(number.trim()) < 1000) {
-                        sum += Integer.parseInt(number.trim());
+            if (!number.isEmpty()) {
+                if (Integer.parseInt(number) > 0) {
+                    if (Integer.parseInt(number) < 1000) {
+                        sum += Integer.parseInt(number);
                     }
                 } else {
                     message += " " + number;
                     throw new IllegalArgumentException(message);
                 }
             }
-        } return sum;
+        }
+        return sum;
     }
 }
 
